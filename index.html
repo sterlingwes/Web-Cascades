@@ -1,0 +1,82 @@
+<!doctype html>
+<html data-ng-app="cascadesdemo">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Web Cascades Demo</title>
+    <link rel="stylesheet" type="text/css" href="style/webcascades.css" />
+</head>
+<body>
+    <div id="webCascadesMenu" data-wc-scroll="menu">
+        <ul>
+            <li></li>
+            <li class="icon-blackberry">
+                <a href="#" class="active">Hub</a>
+            </li>
+            <li class="icon-notifications">
+                <a href="#">Notifications</a>
+            </li>
+            <li class="icon-bbm">
+                <a href="#">BBM</a>
+            </li>
+            <li class="icon-sms">
+                <a href="#">Text Message</a>
+            </li>
+            <li class="icon-mail">
+                <a href="#">Personal</a>
+            </li>
+            <li class="icon-mail">
+                <a href="#">Work</a>
+            </li>
+            <li class="icon-mail">
+                <a href="#">Family</a>
+            </li>
+            <li class="icon-twitter">
+                <a href="#">Twitter</a>
+            </li>
+        </ul>
+    </div>
+    <div id="container" data-wc-view="true"></div>
+    <script src="/vendor/iscroll.js"></script>
+    <script src="/vendor/angular.min.js"></script>
+    <script src="/js/wcScroll.js"></script>
+    <script src="/js/wcChrome.js"></script>
+    <script src="/js/wcViewManager.js"></script>
+    <script src="/js/log.js"></script>
+    <script>
+		
+        var app = angular.module('cascadesdemo', ['logmod']);
+        
+        app.config(['$routeProvider','$locationProvider', function(route,loc) {
+            route.when('/', {
+                templateUrl:    'views/view_hub.html'
+            });
+            
+            route.when('/about', {
+                templateUrl:    'views/view_about.html'
+            });
+			
+			route.otherwise({
+				redirectTo:	'/'
+			});
+            
+			loc.html5Mode(true);
+        }]);
+		
+        app.controller('Footer', ['$scope',function(scope) {
+            scope.wcIcon = 'icon-blackberry';
+        }]);
+        
+        app.value('wcOptions', {
+        //    containerId:    'container'
+        });
+        
+        app.directive('wcView', wcViewManager);
+        app.directive('wcScroll', wcScroll);
+        app.directive('wcHeader', wcChromeHeader);
+        app.directive('wcFooter', wcChromeFooter);
+        
+    </script>
+    
+</body>
+</html>

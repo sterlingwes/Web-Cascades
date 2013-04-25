@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.5" id="webcascades" xml:lang="en">
+  <author href="http://mobywan.com/"
+          rim:copyright="Copyright 2013 Mobywan Corporation">Mobywan Corporation</author>
+  <name>Web Cascades</name>
+  <icon src="icon.png" />
+  <content src="index.html"/>
+  <rim:permissions></rim:permissions>
+</widget>
